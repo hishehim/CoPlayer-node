@@ -1,0 +1,14 @@
+doctype html
+html
+  head
+    title= pageTitle
+    meta(name="viewport", content="width=device-width, initial-scale=1.0")
+    meta(charset='utf-8')
+    link(rel='stylesheet', href='/stylesheets/style.css')
+    script(src='/javascripts/jquery-3.1.~1.min.js')
+    script(src='/javascripts/coplayer.js')
+  body
+    header.header
+      span.title= headerTitle
+    .content
+      block content
