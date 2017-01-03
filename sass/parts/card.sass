@@ -1,0 +1,38 @@
+.card-grid
+  display: flex
+  flex-flow: row wrap
+  justify-content: center
+  width: 100%
+  box-sizing: border-box
+  .card
+    flex: 1 1 auto
+    margin: 8px
+
+.card
+  background: $bg-color-top
+  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24)
+  overflow-x: hidden
+  .card-title
+    padding: 16px
+    font-size: $large-font
+    white-space: nowrap
+    text-overflow: ellipsis
+  .card-body
+    height: 2.7em
+    box-sizing: content-box
+    padding: 16px
+    overflow-x: hidden
+    overflow-y: auto
+    border-top: 1px solid $divider-color
+    color: $secondary-text
+    line-height: 1.3em
+  .card-footer
+    padding: 4px 8px
+    display: flex
+    flex-flow: row wrap
+    justify-content: flex-end
+    border-top: 1px solid $divider-color
+    .btn
+      margin-left: 8px
+      &:first-child
+        margin-left: 0

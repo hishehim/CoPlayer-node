@@ -1,0 +1,57 @@
+.list
+  border: none
+  overflow-y: scroll
+  overflow-x: hidden
+  .list-item
+    display: flex
+    flex-flow: row nowrap
+    width: 100%
+    overflow: hidden
+    .list-item-thumbnail
+      display: block
+      width: 80px
+      height: 80px
+      border: none
+      flex: 0 0 auto
+      margin-right: 8px
+    .list-item-body
+      flex: 1 1 auto
+      overflow: hidden
+      padding: 8px
+      .title
+        font-size: 18px
+        overflow: hidden
+        text-overflow: ellipsis
+        white-space: nowrap
+        margin-bottom: 4px
+      .description
+        color: $secondary-text
+        overflow: hidden
+        text-overflow: ellipsis
+        white-space: nowrap
+        margin-bottom: 4px
+    .list-item-actions
+      flex: 0 0 auto
+      overflow: hidden
+      padding: 8px 0
+      display: flex
+      flex-flow: row nowrap
+      align-items: center
+      margin-right: 16px
+      font-size: 20px
+      .btn
+        background: none
+        color: $secondary-text
+        padding: 0
+        min-width: auto
+        min-width: 1em
+        line-height: 1
+        box-shadow: none
+        margin-left: 16px
+        border-radius: 50%
+        height: 40px
+        width: 40px
+        &:hover
+          background: rgba(0,0,0,.05)
+        &:first-child
+          margin-left: 0

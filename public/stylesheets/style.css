@@ -1,0 +1,371 @@
+@charset "UTF-8";
+html {
+  min-width: 200px; }
+
+html, body {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0; }
+
+body {
+  font: 14px Arial, Helvetica, sans-serif;
+  color: rgba(0, 0, 0, 0.87);
+  background: #F5F5F5;
+  overflow: auto; }
+
+a {
+  text-decoration: none;
+  color: inherit; }
+
+p, h1, h2, h3, h4, h5, h6 {
+  margin: 0;
+  font: inherit; }
+
+.header {
+  width: 100%;
+  height: 60px;
+  line-height: 60px;
+  text-align: center;
+  background: #FFFFFF; }
+  .header .title {
+    font-size: 36px;
+    font-weight: bold;
+    color: rgba(255, 61, 0, 0.87); }
+
+.content {
+  margin: 0 auto;
+  max-width: 1024px;
+  width: 100%;
+  flex: 1 0 auto;
+  display: flex; }
+  @media only screen and (min-width: 769px) {
+    .content {
+      padding-top: 60px;
+      padding-bottom: 128px; } }
+
+.container {
+  flex: 1 0 auto;
+  display: flex;
+  height: 100%;
+  width: 100%;
+  flex-flow: column nowrap; }
+
+.coplayer {
+  width: 100%;
+  max-width: 1024px;
+  margin: 0 auto;
+  position: relative;
+  display: flex;
+  flex-flow: column nowrap;
+  flex: 1 0 auto; }
+
+.coplayer--players-wrapper {
+  z-index: 10;
+  position: relative;
+  height: 0;
+  padding-bottom: 56.25%;
+  width: 100%;
+  margin: 8px 0; }
+  .coplayer--players-wrapper .player {
+    width: 100%;
+    height: 100%; }
+
+.coplayer--playlist-wrapper {
+  flex: 1 0 auto; }
+  .coplayer--playlist-wrapper .playlist-header {
+    z-index: 1;
+    padding: 16px 16px;
+    font-size: 18px;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.12);
+    background: #088eca;
+    color: rgba(255, 255, 255, 0.87);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24); }
+    .coplayer--playlist-wrapper .playlist-header .playlist-title {
+      max-width: 70%;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      overflow: hidden;
+      font-weight: bold; }
+    .coplayer--playlist-wrapper .playlist-header .playlist-count {
+      max-width: 30%; }
+  .coplayer--playlist-wrapper .playlist-list {
+    position: relative;
+    list-style: none;
+    overflow-y: auto;
+    overflow-x: hidden;
+    padding: 0;
+    margin: 0;
+    min-height: 80px;
+    padding-bottom: 100px; }
+    .coplayer--playlist-wrapper .playlist-list .playlist-item {
+      background: #FFFFFF;
+      z-index: 1;
+      width: 100%;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.12); }
+  .coplayer--playlist-wrapper .empty-list-item {
+    height: 80px;
+    width: 100%;
+    text-align: center;
+    color: rgba(255, 61, 0, 0.38);
+    position: absolute;
+    font-size: 30px;
+    line-height: 80px;
+    font-weight: bolder; }
+
+.coplayer-floating-actions {
+  z-index: 8;
+  width: 100%;
+  max-width: 1024px;
+  margin: 0 auto;
+  position: fixed;
+  bottom: 0; }
+  .coplayer-floating-actions .btn {
+    position: absolute;
+    bottom: 20px;
+    right: 20px; }
+
+.card-grid {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  width: 100%;
+  box-sizing: border-box; }
+  .card-grid .card {
+    flex: 1 1 auto;
+    margin: 8px; }
+
+.card {
+  background: #FFFFFF;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+  overflow-x: hidden; }
+  .card .card-title {
+    padding: 16px;
+    font-size: 24px;
+    white-space: nowrap;
+    text-overflow: ellipsis; }
+  .card .card-body {
+    height: 2.7em;
+    box-sizing: content-box;
+    padding: 16px;
+    overflow-x: hidden;
+    overflow-y: auto;
+    border-top: 1px solid rgba(0, 0, 0, 0.12);
+    color: rgba(0, 0, 0, 0.54);
+    line-height: 1.3em; }
+  .card .card-footer {
+    padding: 4px 8px;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: flex-end;
+    border-top: 1px solid rgba(0, 0, 0, 0.12); }
+    .card .card-footer .btn {
+      margin-left: 8px; }
+      .card .card-footer .btn:first-child {
+        margin-left: 0; }
+
+.btn {
+  cursor: pointer;
+  border: none;
+  text-decoration: none;
+  display: inline-block;
+  font: inherit;
+  color: rgba(255, 255, 255, 0.95);
+  font-weight: bold;
+  background: #ff3d00;
+  min-width: 48px;
+  text-align: center;
+  line-height: 36px;
+  border-radius: 2px;
+  padding: 0 16px;
+  margin: 0;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24); }
+  .btn:active {
+    background: #cc3100; }
+
+.btn-flat {
+  background: inherit;
+  color: rgba(255, 61, 0, 0.87);
+  border-radius: 0;
+  box-shadow: none; }
+  .btn-flat:active {
+    background: rgba(0, 0, 0, 0.05); }
+
+.btn-float-action {
+  height: 62px;
+  width: 62px;
+  border-radius: 50%;
+  line-height: 48px;
+  font-size: 48px;
+  font-weight: bolder; }
+
+.large-font {
+  font-size: 24px; }
+
+.ex-large-font {
+  font-size: 36px; }
+
+.divider-left {
+  border-left: 1px solid rgba(0, 0, 0, 0.12); }
+
+.divider-right {
+  border-right: 1px solid rgba(0, 0, 0, 0.12); }
+
+.divider-bottom {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.12); }
+
+.divider-top {
+  border-top: 1px solid rgba(0, 0, 0, 0.12); }
+
+.hide {
+  display: none !important; }
+
+.show {
+  display: block !important; }
+
+.shadow-1 {
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24); }
+
+.shadow-2 {
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23); }
+
+.shadow-3 {
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23); }
+
+.shadow-4 {
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22); }
+
+.shadow-5 {
+  box-shadow: 0 19px 38px rgba(0, 0, 0, 0.3), 0 15px 12px rgba(0, 0, 0, 0.22); }
+
+@media only screen and (max-width: 768px) {
+  .hide-on-small {
+    display: none; } }
+
+@media only screen and (min-width: 769px) {
+  .hide-only-large {
+    display: none; } }
+
+.list {
+  border: none;
+  overflow-y: scroll;
+  overflow-x: hidden; }
+  .list .list-item {
+    display: flex;
+    flex-flow: row nowrap;
+    width: 100%;
+    overflow: hidden; }
+    .list .list-item .list-item-thumbnail {
+      display: block;
+      width: 80px;
+      height: 80px;
+      border: none;
+      flex: 0 0 auto;
+      margin-right: 8px; }
+    .list .list-item .list-item-body {
+      flex: 1 1 auto;
+      overflow: hidden;
+      padding: 8px; }
+      .list .list-item .list-item-body .title {
+        font-size: 18px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        margin-bottom: 4px; }
+      .list .list-item .list-item-body .description {
+        color: rgba(0, 0, 0, 0.54);
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        margin-bottom: 4px; }
+    .list .list-item .list-item-actions {
+      flex: 0 0 auto;
+      overflow: hidden;
+      padding: 8px 0;
+      display: flex;
+      flex-flow: row nowrap;
+      align-items: center;
+      margin-right: 16px;
+      font-size: 20px; }
+      .list .list-item .list-item-actions .btn {
+        background: none;
+        color: rgba(0, 0, 0, 0.54);
+        padding: 0;
+        min-width: auto;
+        min-width: 1em;
+        line-height: 1;
+        box-shadow: none;
+        margin-left: 16px;
+        border-radius: 50%;
+        height: 40px;
+        width: 40px; }
+        .list .list-item .list-item-actions .btn:hover {
+          background: rgba(0, 0, 0, 0.05); }
+        .list .list-item .list-item-actions .btn:first-child {
+          margin-left: 0; }
+
+/*!
+ *  Font Awesome 4.7.0 by @davegandy - http://fontawesome.io - @fontawesome
+ *  License - http://fontawesome.io/license (Font: SIL OFL 1.1, CSS: MIT License)
+ */
+/* FONT PATH
+ * -------------------------- */
+@font-face {
+  font-family: 'FontAwesome';
+  src: url("../fonts/fa/fontawesome-webfont.eot?v=4.7.0");
+  src: url("../fonts/fa/fontawesome-webfont.eot?#iefix&v=4.7.0") format("embedded-opentype"), url("../fonts/fa/fontawesome-webfont.woff2?v=4.7.0") format("woff2"), url("../fonts/fa/fontawesome-webfont.woff?v=4.7.0") format("woff"), url("../fonts/fa/fontawesome-webfont.ttf?v=4.7.0") format("truetype"), url("../fonts/fa/fontawesome-webfont.svg?v=4.7.0#fontawesomeregular") format("svg");
+  font-weight: normal;
+  font-style: normal; }
+
+.fa {
+  display: inline-block;
+  font: normal normal normal 14px/1 FontAwesome;
+  font-size: inherit;
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale; }
+
+/* makes the font 33% larger relative to the icon container */
+.fa-lg {
+  font-size: 1.33333em;
+  line-height: 0.75em;
+  vertical-align: -15%; }
+
+.fa-2x {
+  font-size: 2em; }
+
+.fa-3x {
+  font-size: 3em; }
+
+.fa-4x {
+  font-size: 4em; }
+
+.fa-5x {
+  font-size: 5em; }
+
+.fa-plus:before {
+  content: ""; }
+
+.fa-minus:before {
+  content: ""; }
+
+.fa-ellipsis-v:before {
+  content: ""; }
+
+.fa-external-link-square:before {
+  content: ""; }
+
+#debug-table {
+  border: none;
+  position: fixed;
+  top: 10px;
+  right: 10px;
+  z-index: 100;
+  background: rgba(0, 0, 0, 0.7);
+  color: rgba(255, 255, 255, 0.87);
+  border: none !important; }
+  #debug-table td {
+    border: none !important; }

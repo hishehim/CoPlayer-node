@@ -2,9 +2,27 @@ extends layout
 
 block content
   .coplayer
-    .coplayer-wrapper
-      .players-scaling.card
-        .player
-    .coplayer-playlist.card
-      .playlist-item
-      .playlist-item
+    #player.coplayer--players-wrapper.card
+      .player
+    .coplayer--playlist-wrapper.card
+      .playlist-header
+        span.playlist-title(title='nameAnameAnameAnameAnameA') nameAnameAnameAnameAnameA
+        span.playlist-count(title='10/10') 10/10
+      .empty-list-item Nothing Here!
+      ul.playlist-list.list
+        - for (var x = 0; x < 10; x++)
+          li.playlist-item.list-item
+            img.list-item-thumbnail
+            .list-item-body 
+              h1
+                a(href='', target='_blank').title asdsfgdfhfgjfgjdfgdfgdfghdgshdf
+              p.description asdsfgdfhfgjfgjdfgdfgdfghdgshdaaaaaaaaaf
+            .list-item-actions
+              button.btn
+                i.fa.fa-minus(aria-hidden='true')
+              //- a.btn(href='', target='_blink') 
+              //-   i.fa.fa-external-link-square(aria-hidden='true')
+                //- button.btn
+                //-   i.fa.fa-ellipsis-v(aria-hidden='true')
+      .coplayer-floating-actions
+        button.btn.btn-float-action.coplayer-btn-add.shadow-2 +

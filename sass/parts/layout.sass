@@ -1,0 +1,50 @@
+html
+  min-width: 200px
+
+html, body
+  height: 100%
+  width: 100%
+  margin: 0
+  padding: 0
+
+body
+  font: 14px Arial, Helvetica, sans-serif
+  color: $primary-text
+  background: $bg-color-secondary
+  overflow: auto
+
+a
+  text-decoration: none
+  color: inherit
+
+p, h1, h2, h3, h4, h5, h6
+  margin: 0
+  font: inherit
+
+.header
+  width: 100%
+  height: $header-height
+  line-height: $header-height
+  text-align: center
+  background: $bg-color-top
+  .title
+    font-size: $ex-large-font
+    font-weight: bold
+    color: rgba($accent-color, 0.87)
+
+.content
+  margin: 0 auto
+  max-width: 1024px
+  width: 100%
+  flex: 1 0 auto
+  display: flex
+  @media #{$above-small-screen}
+    padding-top: 60px
+    padding-bottom: 128px
+
+.container
+  flex: 1 0 auto
+  display: flex
+  height: 100%
+  width: 100%
+  flex-flow: column nowrap
