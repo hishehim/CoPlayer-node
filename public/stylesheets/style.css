@@ -37,7 +37,9 @@ p, h1, h2, h3, h4, h5, h6 {
   margin: 0 auto;
   max-width: 1024px;
   width: 100%;
+  -ms-flex: 1 0 auto;
   flex: 1 0 auto;
+  display: -ms-flexbox;
   display: flex; }
   @media only screen and (min-width: 769px) {
     .content {
@@ -45,10 +47,13 @@ p, h1, h2, h3, h4, h5, h6 {
       padding-bottom: 128px; } }
 
 .container {
+  -ms-flex: 1 0 auto;
   flex: 1 0 auto;
+  display: -ms-flexbox;
   display: flex;
   height: 100%;
   width: 100%;
+  -ms-flex-flow: column nowrap;
   flex-flow: column nowrap; }
 
 input {
@@ -69,8 +74,11 @@ input[type='submit'] {
   max-width: 1024px;
   margin: 0 auto;
   position: relative;
+  display: -ms-flexbox;
   display: flex;
+  -ms-flex-flow: column nowrap;
   flex-flow: column nowrap;
+  -ms-flex: 1 0 auto;
   flex: 1 0 auto; }
 
 .coplayer--players-wrapper {
@@ -85,13 +93,17 @@ input[type='submit'] {
     height: 100%; }
 
 .coplayer--playlist-wrapper {
+  -ms-flex: 1 0 auto;
   flex: 1 0 auto; }
   .coplayer--playlist-wrapper .playlist-header {
     z-index: 1;
     padding: 16px 16px;
     font-size: 18px;
+    display: -ms-flexbox;
     display: flex;
+    -ms-flex-flow: row wrap;
     flex-flow: row wrap;
+    -ms-flex-pack: justify;
     justify-content: space-between;
     border-bottom: 1px solid rgba(0, 0, 0, 0.12);
     background: #088eca;
@@ -142,12 +154,16 @@ input[type='submit'] {
     right: 20px; }
 
 .card-grid {
+  display: -ms-flexbox;
   display: flex;
+  -ms-flex-flow: row wrap;
   flex-flow: row wrap;
+  -ms-flex-pack: center;
   justify-content: center;
   width: 100%;
   box-sizing: border-box; }
   .card-grid .card {
+    -ms-flex: 1 1 auto;
     flex: 1 1 auto;
     margin: 8px; }
 
@@ -172,8 +188,11 @@ input[type='submit'] {
     line-height: 1.3em; }
   .card .card-footer {
     padding: 4px 8px;
+    display: -ms-flexbox;
     display: flex;
+    -ms-flex-flow: row wrap;
     flex-flow: row wrap;
+    -ms-flex-pack: end;
     justify-content: flex-end;
     border-top: 1px solid rgba(0, 0, 0, 0.12); }
     .card .card-footer .btn {
@@ -270,7 +289,9 @@ input[type='submit'] {
   overflow-y: scroll;
   overflow-x: hidden; }
   .list .list-item {
+    display: -ms-flexbox;
     display: flex;
+    -ms-flex-flow: row nowrap;
     flex-flow: row nowrap;
     width: 100%;
     overflow: hidden; }
@@ -279,9 +300,11 @@ input[type='submit'] {
       width: 80px;
       height: 80px;
       border: none;
+      -ms-flex: 0 0 auto;
       flex: 0 0 auto;
       margin-right: 8px; }
     .list .list-item .list-item-body {
+      -ms-flex: 1 1 auto;
       flex: 1 1 auto;
       overflow: hidden;
       padding: 8px; }
@@ -298,11 +321,15 @@ input[type='submit'] {
         white-space: nowrap;
         margin-bottom: 4px; }
     .list .list-item .list-item-actions {
+      -ms-flex: 0 0 auto;
       flex: 0 0 auto;
       overflow: hidden;
       padding: 8px 0;
+      display: -ms-flexbox;
       display: flex;
+      -ms-flex-flow: row nowrap;
       flex-flow: row nowrap;
+      -ms-flex-align: center;
       align-items: center;
       margin-right: 16px;
       font-size: 20px; }
