@@ -4,8 +4,10 @@ var gulp = require('gulp'),
     sass = require('gulp-sass'),
     jshint = require('gulp-jshint'),
     path = require('path'),
+    // rename = require('gulp-rename'),
     spawner = require('child_process').spawn,
     autoprefixer = require('gulp-autoprefixer'),
+    mocha = require('gulp-spawn-mocha'),
 
     __publicDir = './public',
     public = {
@@ -15,7 +17,7 @@ var gulp = require('gulp'),
     assets = {
         'sass': ['./sass/**/[^_]*.{sass,scss}'],
         'sass-watch': ['./sass/**/*.{sass,scss}'],
-        'js': ['./js_module/**/*.js'],
+        'js': ['./js_module/parts/*.js', './js_module/coplayer/*.js', './js_module/*.js'],
     },
     coreServerFiles = ['./app.js', './bin/*', './routes/*.js'],
     nodeServer;
@@ -58,16 +60,62 @@ process.on('exit', function(){
 });
 
 gulp.task('watchAssets', function(){
-  gulp.run('concatScripts');
   gulp.watch(assets['js'], ['concatScripts']);
-
-  gulp.run('compileSass');
+  gulp.watch(public['js'], ['jshint']);
   gulp.watch(assets['sass-watch'], ['compileSass']);
 });
 
 gulp.task('watchServer', function(){
-  gulp.run('server');
   gulp.watch(coreServerFiles, ['server']);
 });
 
-gulp.task('default', ['watchAssets','watchServer']);
+gulp.task('dev', ['concatScripts','jshint','compileSass','server','watchAssets','watchServer']);
+
+
+/* Test Related */
+const coPlayerSrc = './js_module/coplayer/coplayer.js';
+// gulp.task('runCoplayerTest', function(){
+// });
+
+gulp.task('testCoplayer', function(){
+  gulp.watch(coPlayerSrc);
+});
+
+gulp.task('lintAsset', function(){
+  return gulp.src(assets['js'])
+    .pipe(jshint())
+    .pipe(jshint.reporter('jshint-stylish'));
+});
+
+const mochaDest = './test';
+var testFiles = {
+  
+  'error': {
+    depedencies: ['./js_module/parts/error.js', './test/tests/test_error.js'],
+  },
+  'coplayer': {
+    depedencies: ['./js_module/coplayer/coplayer.js', './test/tests/test_coplayer.js'],
+  },
+}
+
+gulp.task('test', function(){
+  Object.keys(testFiles).forEach(function(key){
+    testFiles[key].dest = path.join(mochaDest,key);
+    gulp.task(key + 'RunTest', function(){
+      return gulp.src(testFiles[key].dest, {read: false})
+        .pipe(mocha({
+          cwd: testFiles[key].dest,
+          recursive: false,
+          reporter: 'spec',
+          colors: true,
+        }));
+    });
+    gulp.task(key + 'GenerateTest', function(){
+      return gulp.src(testFiles[key].depedencies)
+        .pipe(concat('mocha_'+ key + '.js'))
+        .pipe(gulp.dest(testFiles[key].dest));
+    });
+    gulp.watch(testFiles[key].depedencies, [key + 'GenerateTest']);
+    gulp.watch(path.join(testFiles[key].dest,'*.js'), [key + 'RunTest']);    
+  });
+});

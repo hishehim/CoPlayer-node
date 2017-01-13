@@ -1,7 +1,7 @@
 extends layout
 
 block content
-  .modal-holder#coplayer-search-modal
+  .modal-holder#coplayer-search
     .modal-box
       .modal-title
         span Add Item
@@ -34,9 +34,5 @@ block content
             .list-item-actions
               button.btn
                 i.fa.fa-minus(aria-hidden='true')
-              //- a.btn(href='', target='_blink') 
-              //-   i.fa.fa-external-link-square(aria-hidden='true')
-                //- button.btn
-                //-   i.fa.fa-ellipsis-v(aria-hidden='true')
       .coplayer-floating-actions
-        button.btn.btn-float-action.coplayer-btn-add.shadow-2(target='#coplayer-search-modal') +
+        button.btn.btn-float-action(data-toggle='modal', data-target='#coplayer-search') +
